@@ -1,0 +1,131 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="whidth=whidth-device,initial-csale=1">
+	<title>TerangaBank</title>
+
+
+
+</head>
+<body>
+
+
+	<div class="divcontainer">
+
+		<div class="forms-divcontainer">
+
+			<div class="signin-signup">
+				<form action="" class="sign-in-form" (ngSubmit)="userLogin(monFormulaire)" #monFormulaire="ngForm" >
+
+
+					<h2 class="title">Connexion</h2>
+					<div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="text" id="login" [(ngModel)]="user.login"  name="login" placeholder="Username" required>
+					</div>
+
+					<div class="input-field">
+						<i class="fas fa-lock"></i>
+						<input type="password"  [(ngModel)]="user.password" id="password" name="password" placeholder="Password" required>
+					</div>
+					<input type="submit" value="Login" class="btn solid">
+
+				</form>
+
+				<form action="register" class="sign-up-form"  (ngSubmit)="userRegister(monFormulaire)"  #monFormulaire="ngForm" >
+					<h2 class="title">Inscription</h2>
+
+
+					<div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="text" name="nom" [(ngModel)]="user.nom"  id="nom" placeholder="Nom complet" required>
+					</div>
+					<div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="text" name="cin" id="cin" [(ngModel)]="user.cin" placeholder="Numéro securite sociale" required>
+					</div>
+          <div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="text" id="login" [(ngModel)]="user.login"  name="login" placeholder="Username" required>
+					</div>
+					<div class="input-field">
+						<i class="fas fa-user"></i>
+						<input type="number" name="code" id="code" [(ngModel)]="user.code" placeholder="code postale" required>
+					</div>
+					<div class="input-field">
+						<i class='bx bxs-phone-call'></i>
+						<input type="number" name="telephone" [(ngModel)]="user.telephone" id="telephone" placeholder="Telephone" required>
+					</div>
+
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="Email" required>
+					</div>
+
+					<div class="input-field">
+						<i class="fas fa-lock"></i>
+						<input type="Password" name="password" [(ngModel)]="user.password"  id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="un mot de passe fort qui comprend au moins 8 caractères, avec une combinaison de lettres (majuscules et minuscules), de chiffres et de caractères spéciaux" required>
+					</div>
+					<div class="input-field">
+						<i class="fas fa-lock"></i>
+						<input type="password" [(ngModel)]="password2" placeholder="confirm Password" name="password2" id="password2" required>
+					</div>
+          <div class="select-container">
+            <span class="prefix-text">Type de compte :</span>
+            <select class="custom-select" name="compte" id="compte" [(ngModel)]="user.compte">
+              <option value="courant" selected>courant</option>
+              <option value="epargne">epargne</option>
+
+            </select>
+          </div>
+
+
+
+					<input type="submit" value="Sign up" class="btn solid" id="boutonIncription">
+
+				</form>
+			</div>
+		</div>
+		<div class="panels-divcontainer">
+			<div class="pa left-panel">
+				<div class="content">
+
+				<button class="btn transparent" id="sign-up-btn" (click)=" voirInscription()">Inscription</button>
+ <div class="text-log">
+					<h2>C'est votre première fois ici ?</h2>
+					<h3>Cliquer sur le bouton inscription</h3>
+				</div>
+				</div>
+
+				<img src="../../assets/svg/wallet.svg" class="image" alt="">
+			</div>
+
+			<div class="pa right-panel">
+				<div class="content">
+			<button class="btn transparent" id="sign-in-btn" (click)=" voirConnexion()" >Connexion</button>
+ <div class="text-log">
+					<h2>Dejà un compte ?</h2>
+					<h3>Cliquer sur le bouton Connexion</h3>
+				</div>
+				</div>
+
+				<img src="../../assets/svg/finance.svg" class="image" alt="">
+			</div>
+		</div>
+	</div>
+  <script>
+    // Vérification des mots de passe côté client
+    function checkPasswords() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword2").value;
+        if (password !== confirmPassword) {
+            alert("Les mots de passe ne correspondent pas.");
+
+        }
+
+    }
+</script>
+
+</body>
+
+
+
